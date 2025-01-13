@@ -26,12 +26,14 @@ class TransientExample {
         String filename = "user.ser";
 
         // Serialize the object
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+        /*try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
             oos.writeObject(user);
             System.out.println("Serialized User: " + user);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+         */
 
         // Deserialize the object
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
