@@ -1,4 +1,4 @@
-package day3.Q7;
+package day3n4.Q7;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

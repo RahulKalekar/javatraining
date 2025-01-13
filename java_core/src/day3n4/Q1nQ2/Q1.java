@@ -1,4 +1,4 @@
-package day3.Q1nQ2;
+package day3n4.Q1nQ2;
 import java.io.*;
 
 public class Q1 {

@@ -1,4 +1,4 @@
-package day3.Q5;
+package day3n4.Q5;
 
 public class InvalidCountryException extends RuntimeException {
     public InvalidCountryException(String message) {

@@ -1,4 +1,4 @@
-package day3.Q4;
+package day3n4.Q4;
 
 
 import java.io.*;
