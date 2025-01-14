@@ -45,7 +45,7 @@ public class BookApp {
 
     public static void main(String[] args) throws InSufficientBooksException {
         LinkedList<Book> bookList = new LinkedList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("src\\day3\\Q4\\books.txt"));) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src\\day3n4\\Q4\\books.txt"));) {
 
             String line;
             while ((line = br.readLine()) != null) {
