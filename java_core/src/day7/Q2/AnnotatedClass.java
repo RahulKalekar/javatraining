@@ -1,4 +1,4 @@
-package day7;
+package day7.Q2;
 
 @Author(name = "Johny")             // applying to class
 @Version(number = 1.0)

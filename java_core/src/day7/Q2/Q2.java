@@ -1,4 +1,4 @@
-package day7;
+package day7.Q2;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
