@@ -6,7 +6,7 @@ import factory.ConnectionFactory;
 
 import java.sql.*;
 
-public class CustomerDAOImpl implements repository.CustomerDAO {
+public class CustomerDAOImpl implements CustomerDAO {
 
     private ConnectionFactory connectionFactory;
 
@@ -15,7 +15,7 @@ public class CustomerDAOImpl implements repository.CustomerDAO {
     }
 
     @Override
-    public void addCustomer(repository.Customer customer) throws AppException {
+    public void addCustomer(Customer customer) throws AppException {
         String sql = "INSERT INTO customer (name, address, phone_number) VALUES (?, ?, ?)";
 
         try (Connection conn = connectionFactory.getConnection();

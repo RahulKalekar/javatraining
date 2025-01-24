@@ -1,0 +1,13 @@
+exception handling, collections, thread
+
+ThreadPool: Rather than we managing thread life cycle jvm does it using threadpool.
+Blocking queue inside TP
+
+Types of thread pool
+1)Fixed can take a number if cpu intensive no adv of more threads, IO bound process bcoz if a thread has context switched
+2)Cached
+3)Scheduled
+4) SingleThreadedExecutor: only single trh
+5)fork and join in //el processing
+
+tomcat uses threadpool

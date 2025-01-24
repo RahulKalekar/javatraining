@@ -1,0 +1,68 @@
+biggest framework in java: SPRING
+
+Dependency injection
+AOP Aspect oriented programming
+Reduction of boilerplate code act as a glue framework
+
+Goal-> simplify development of enterprise software to do it quicker.
+because boilerplate config code is handled by framework
+
+We need to teach spring our dependency--> Bean wiring
+Bean wiring can be done in 3 ways
+1. XML (now deprecated) 2003 java4
+2. Spring 2.5 Annotation
+3. Spring 3.0 Java config
+4. Spring 
+
+spring-context dependency needed
+1.XML		//gangadhar
+2.Annotation	//shaktiman
+3.Java Configuration
+autowire="byType and primary="true"
+
+"bean" is any object whose life cycle is managed by spring
+
+<bean id="p" class="com.demo.Passanger" autowire="byType">
+	<property name="name" value="John"/>
+</bean>
+
+---------------OR--------------
+@Component (used to indicate bean)
+		|
+		|
+---------------------------------
+|		|		|
+@Controller	@Service	@Repository
+@RestController
+
+
+@Component(value="v1")
+@Primary
+public class Car implements Vehicle{
+	private String 
+
+@Component("v2")
+public class 
+
+
+1. xml(gone)
+2. annotation +xml
+3. annotation + java configuration
+	@Component
+4. annotation + java configuration
+
+
+blocking array queue
+linked hash map
+exception handling
+interface abstract
+stream collections
+java 8
+	@Bean
+
+
+Keyset , entry set
+functional interface
+advantage of exception wrapper
+
+java 8 stream
