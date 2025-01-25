@@ -1,0 +1,70 @@
+Dependency Injection
+
+We have layers like persistance/dao layer, web layer, service layer
+Each layer communicates via interfaces which we have created
+
+About persistence/dao layer
+It contains Book class which is needed
+BookDao,BookService is the interface which has all the methods
+
+Now , where do we apply the dependency injection exactly?
+We need to change three things
+1. BookServiceImp
+2. BookDaoImp
+3. Create bean.xml file
+
+beans.xml
+contains
+some default bean tag code
+
+{
+<bean id="bookDao" class="com.training.model.persistance.BookDaoImp" />
+This is the bean for BookDaoImp
+->id is just unique identifier for the bean
+->class is the ""fully qualified class name"".
+}
+{
+<bean id="bookService" class="com.training.model.service.BookServiceImp">
+This is the bean for BookServiceImp
+->id and class same thing
+
+<!-- Inject the dependency via setter -->
+<property name="dao" ref="bookDao" />
+HERE the main thing happens, we are via setter, property name="dao" which
+is the name of the property in BookServiceImp
+Also we have to declare a setter called setDao, and property name actually
+calls the setter.
+ref=bookDao gives reference to the bookService bean that we have to inject
+from bookDaoImp to bookServiceImp
+   // dao layer to service layer
+
+}
+
+But how do we continue in web layer that is Main class
+
+1)here load the spring context first using-
+ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+
+2)get the bookservice bean
+Main talks to service layer right?
+ so get a bookService bean
+BookService bookService = (BookService) context.getBean("bookService");
+
+3)using the methods
+System.out.println(bookService.getAllBooks());
+
+use bookService bean and we can now access the methods of BookService and indirectly
+methods of bookDao using dependency injection
+
+//NOW this was using only xml which everything has to be done manually
+even in the bean file you have to specify what injects what
+---------------------------------------------------------------------------
+So we use next
+2)Dependency injection using annotations
+
+We will use the @Repository annotation for the BookDaoImp class,
+and the @Service annotation for the BookServiceImp class.
+ We will also use @Autowired to automatically inject dependencies.
+
+
+
