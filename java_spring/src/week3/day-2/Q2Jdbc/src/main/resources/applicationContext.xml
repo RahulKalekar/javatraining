@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+<!--    bean wiring for hashmap-->
+    <bean id="book1" class="com.training.model.persistence.entities.Book">
+        <constructor-arg value="1" />
+        <constructor-arg value="1234" />
+        <constructor-arg value="book1" />
+        <constructor-arg value="author1" />
+        <constructor-arg value="100.0" />
+    </bean>
+
+    <bean id="book2" class="com.training.model.persistence.entities.Book">
+        <constructor-arg value="2" />
+        <constructor-arg value="1235" />
+        <constructor-arg value="book2" />
+        <constructor-arg value="author2" />
+        <constructor-arg value="200.0" />
+    </bean>
+
+    <bean id="booksMap" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="1" value-ref="book1" />
+                <entry key="2" value-ref="book2" />
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="bookDao" class="com.training.model.persistence.dao.BookDaoImp">
+        <property name="booksMap" ref="booksMap" />
+    </bean>
+
+    <bean id="bookService" class="com.training.model.service.BookServiceImp">
+        <property name="dao" ref="bookDao" />
+    </bean>
+</beans>

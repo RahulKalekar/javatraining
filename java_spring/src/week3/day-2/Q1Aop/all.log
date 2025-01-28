@@ -1,0 +1,1 @@
+2025-01-29 00:01:12.228 [main] INFO  com.book_app.services.aspect.MethodLogger - Method deleteBook took 1 ms to execute.
