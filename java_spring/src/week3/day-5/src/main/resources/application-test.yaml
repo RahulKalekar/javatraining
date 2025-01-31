@@ -1,0 +1,11 @@
+app:
+  message: "Test Profile Active"
+
+account:
+  message: "welcome to test profile"
+  contactDetails:
+    name: "Sachin"
+    email: "sachin@gmail.com"
+  onCallSupport:
+    354645464556
+    375765777677

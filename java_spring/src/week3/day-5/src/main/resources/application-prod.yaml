@@ -1,0 +1,12 @@
+app:
+  message: "Production Profile Active"
+
+
+account:
+  message: "Production Account Profile Active"
+  contactDetails:
+    name: "Rahul"
+    email: "qV4o6@example.com"
+  onCallSupport:
+      9340124567
+      9340124568
