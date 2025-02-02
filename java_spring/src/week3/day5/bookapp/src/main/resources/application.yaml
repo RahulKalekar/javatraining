@@ -14,7 +14,7 @@ spring:
               format_sql: true
 
     profiles:
-        active: prod
+        active: dev
 app:
     message: "default profile"
 key:
@@ -24,13 +24,16 @@ server:
 
 logging:
     level:
+        root: INFO
         org:
             springframework:
                 web: DEBUG
             hibernate: ERROR
-            com.bookapp01: INFO
-            com.bookapp01.service: DEBUG
-
+            com.bookapp: INFO
+            com.bookapp.service: DEBUG
+    file:
+        name: application.log
+        path: logs
 management:
     endpoints:
         web:

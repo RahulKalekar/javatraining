@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @SpringBootApplication
 @EnableConfigurationProperties(InfoDto.class)
 @EnableScheduling
-public class Bookapp01Application extends SpringBootServletInitializer implements CommandLineRunner {
+public class Bookapp01Application /*extends SpringBootServletInitializer*/ implements CommandLineRunner {
     @Autowired
     private BookRepo bookRepo;
 

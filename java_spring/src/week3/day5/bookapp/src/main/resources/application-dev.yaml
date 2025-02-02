@@ -1,0 +1,11 @@
+app:
+  message: "Development Profile Active"
+
+account:
+  message: "Development Account Profile Active"
+  contactDetails:
+    name: "Shaurya"
+    email: "LZiXu@example.com"
+  onCallSupport:
+    9340124567
+    9340124568

@@ -62,13 +62,9 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <!-- Tomcat provided -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
+
     </dependencies>
-    <packaging>war</packaging>
+<!--    <packaging>war</packaging>-->
 
     <build>
         <plugins>
