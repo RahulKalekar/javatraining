@@ -22,7 +22,7 @@ public class AccountController {
         this.accountService = accountService;
     }
     @PostMapping("/transfer")
-    public ResponseEntity<String> transferFunds(@RequestBody AccountDto accountBean) {
+    public ResponseEntity<String> transferFunds(@RequestBody AccountDto accountBean) {      //taking the account dto plate
             accountService.transfer(accountBean.getFrom(), accountBean.getTo(), accountBean.getAmount());
             return ResponseEntity.ok("Transfer successful");
 

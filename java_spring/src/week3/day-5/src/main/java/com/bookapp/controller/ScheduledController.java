@@ -1,0 +1,24 @@
+package com.bookapp.controller;
+
+import com.bookapp.service.ScheduledService;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api")
+public class ScheduledController {
+
+    private final ScheduledService scheduledService;
+
+    public ScheduledController(ScheduledService scheduledService) {
+        this.scheduledService = scheduledService;
+    }
+
+    @GetMapping("/scheduled")
+    public String triggerTask(){
+        scheduledService.run();
+        return "scheduled task triggered";
+    }
+}
