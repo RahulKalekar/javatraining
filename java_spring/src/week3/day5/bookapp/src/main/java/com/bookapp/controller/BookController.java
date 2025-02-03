@@ -20,6 +20,7 @@ public class BookController {
     public BookController(BookService bookService) {
         this.bookService = bookService;
     }
+    //port: 8081
     @GetMapping("books")
     public ResponseEntity<List<Book>> getAll() {
         return ResponseEntity.status(HttpStatus.OK).body(bookService.getAll());

@@ -1,5 +1,6 @@
 package com.bookapp.service;
 
+import com.bookapp.aspect.Loggable;
 import com.bookapp.entities.Book;
 import com.bookapp.exceptions.BookNotFoundException;
 import com.bookapp.repo.BookRepo;
@@ -16,6 +17,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Loggable
     public List<Book> getAll() {
         return bookRepo.findAll();
     }
