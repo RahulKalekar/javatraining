@@ -1,6 +1,6 @@
 package com.bankapp.service;
 
-import com.bankapp.entities.UserEntity;
+import com.bankapp.repo.UserEntity;
 import com.bankapp.repo.UserRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService{
+public class UserEntityServiceImpl implements UserEntityService {
     private UserRepo userRepo;
     @Autowired
-    public UserServiceImpl(UserRepo userRepo) {
+    public UserEntityServiceImpl(UserRepo userRepo) {
         this.userRepo = userRepo;
     }
 

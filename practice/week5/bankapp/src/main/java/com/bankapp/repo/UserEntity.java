@@ -1,4 +1,4 @@
-package com.bankapp.entities;
+package com.bankapp.repo;
 
 import jakarta.persistence.*;
 import lombok.Data;
