@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "d026611c-baf5-4cfb-8ce3-3e338321ee69",
+		"name": "day3-security-lab",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41694935"
+	},
+	"item": [
+		{
+			"name": "generate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "busycoder-cc",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "wYLW6IYHsVlfZym6EM41p43Na09jStCd",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid email profile",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7080/realms/master/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"realms",
+						"master",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "without token bearer",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/currency-conversion/currency-converter/from/USD/to/INR/quantity/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"currency-conversion",
+						"currency-converter",
+						"from",
+						"USD",
+						"to",
+						"INR",
+						"quantity",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "routelocator outh2",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "41I7761yDFwnIqUrlcVIpmgYOocdJPog",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "rahul-cc",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:7080/realms/master/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "openid email profile",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "clientcredentials _ccesstoken",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/currency-conversion/currency-converter/from/USD/to/INR/quantity/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"currency-conversion",
+						"currency-converter",
+						"from",
+						"USD",
+						"to",
+						"INR",
+						"quantity",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
