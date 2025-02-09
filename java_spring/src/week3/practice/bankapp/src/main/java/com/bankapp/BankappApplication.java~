@@ -1,0 +1,27 @@
+package com.bankapp;
+
+import com.bankapp.entity.Account;
+import com.bankapp.repo.AccountRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.math.BigDecimal;
+
+@SpringBootApplication
+public class BankappApplication implements CommandLineRunner {
+
+	@Autowired
+	private AccountRepo accountRepo;
+	public static void main(String[] args) {
+		SpringApplication.run(BankappApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		//accountRepo.save(new Account("Account 1", new BigDecimal(1000.00)));
+		accountRepo.save(new Account("Account 1", new BigDecimal("2000.00")));
+
+	}
+}

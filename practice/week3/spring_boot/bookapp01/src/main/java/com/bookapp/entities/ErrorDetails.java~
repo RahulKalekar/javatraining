@@ -1,0 +1,4 @@
+package com.bookapp.entities;
+
+public class ErrorDetails {
+}
