@@ -1,7 +1,5 @@
-package com.bankapp.config;
+package com.bookapp.config;
 
-import com.bankapp.repo.UserEntity;
-import com.bankapp.service.UserEntityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,38 +21,33 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity(prePostEnabled = true)
 public class SecConfig {
 
     @Autowired
     private UserDetailsService userDetailsService;
 //user details service tell spring security what are the user details
 //provider talks to service
-    @Bean
-    public AuthenticationProvider authenticationProvider(PasswordEncoder passwordEncoder) {
-        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-        daoAuthenticationProvider.setUserDetailsService(userDetailsService);
-        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
-        return daoAuthenticationProvider;
-    }
-
 //    @Bean
-//    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
-//        UserDetails raj= User.withUsername("raj")
-//                .password(passwordEncoder.encode("raj123"))
-//                .roles("ADMIN")
-//                .build();
-//        UserDetails ekta= User.withUsername("ekta")
-//                .password(passwordEncoder.encode("ekta123"))
-//                .roles("MGR")
-//                .build();
-//
-//        UserDetails gun= User.withUsername("gun")
-//                .password(passwordEncoder.encode("gun123"))
-//                .roles("CLERK")
-//                .build();
-//        return new InMemoryUserDetailsManager(raj,ekta, gun);
+//    public AuthenticationProvider authenticationProvider(PasswordEncoder passwordEncoder) {
+//        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+//        daoAuthenticationProvider.setUserDetailsService(userDetailsService);
+//        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
+//        return daoAuthenticationProvider;
 //    }
+
+    @Bean
+    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
+        UserDetails raj= User.withUsername("teacher")
+                .password(passwordEncoder.encode("teacher"))
+                .roles("TEACHER")
+                .build();
+        UserDetails ekta= User.withUsername("student")
+                .password(passwordEncoder.encode("student"))
+                .roles("STUDENT")
+                .build();
+
+        return new InMemoryUserDetailsManager(raj,ekta);
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -65,13 +58,13 @@ public class SecConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 .cors(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/mgr/**").hasAnyRole("MGR", "ADMIN")
-                        .requestMatchers("/clerk/**").hasAnyRole("CLERK", "MGR", "ADMIN")
-                        .requestMatchers("/home/**").permitAll()
+                .authorizeHttpRequests(registry -> registry
+                        .requestMatchers("/api/books/delete/**").hasRole("TEACHER")
+                        .requestMatchers("/api/books/update/**").hasAnyRole("STUDENT", "TEACHER")
+                        .requestMatchers("/api/**").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
+                //.authenticationProvider(authenticationProvider(passwordEncoder()))
                 .sessionManagement((session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)))
                 .build();
     }

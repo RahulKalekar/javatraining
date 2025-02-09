@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8125b8e-d817-4d39-87be-af382480417c" name="Changes" comment="day 4 renaming">
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/java/com/productapp/ProductappApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/java/com/productapp/controller/AppExceptionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/java/com/productapp/controller/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/java/com/productapp/controller/HelloProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/java/com/productapp/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/java/com/productapp/dto/ErrorMessages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/java/com/productapp/dto/InfoDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/java/com/productapp/excetions/ProductNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/java/com/productapp/repo/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/java/com/productapp/repo/ProductRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/java/com/productapp/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/java/com/productapp/service/ProductServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/resources/ValidationMessages.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/resources/application-preprod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/resources/application-test.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/main/resources/log4j2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice/productapp/src/test/java/com/productapp/ProductappApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../practice/week5/bankapp_jwt/src/main/java/com/bankapp/config/SecConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../practice/week5/bankapp_jwt/src/main/java/com/bankapp/config/SecConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

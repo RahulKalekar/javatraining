@@ -1,4 +1,4 @@
-package com.bankapp.repo;
+package com.bookapp.repo;
 
 import jakarta.persistence.*;
 import lombok.Data;
