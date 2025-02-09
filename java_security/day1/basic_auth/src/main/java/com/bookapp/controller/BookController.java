@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,8 @@ public class BookController {
     public ResponseEntity<List<Book>> getAll() {
         return ResponseEntity.status(HttpStatus.OK).body(bookService.getAll());
     }
+    //TO CHECK METHOD LEVEL SECURITY I HAVE GIVEN SIMPLY
+    @PreAuthorize("hasAuthority('ROLE_TEACHER')")
     @GetMapping(path="books/{id}")           //READ (R)
     public Book getById(@PathVariable int id){
         return bookService.getById(id);
@@ -39,6 +42,7 @@ public class BookController {
     public ResponseEntity<Book> update(@PathVariable int id,@Valid @RequestBody Book book){
         return ResponseEntity.status(HttpStatus.OK).body(bookService.update(id, book));
     }
+    @PreAuthorize("hasAuthority('ROLE_TEACHER')")
     @DeleteMapping("books/delete/{id}")         //DELETE (D)
     public ResponseEntity<Void> removeProduct(@PathVariable int id) {
         bookService.delete(id);
