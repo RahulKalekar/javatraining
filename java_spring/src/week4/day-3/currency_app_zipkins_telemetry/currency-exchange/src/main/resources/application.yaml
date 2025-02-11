@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: currency-exchange
+server:
+  port: 8000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8070/eureka/
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: "*"  # Expose all endpoints for Prometheus
+  endpoint:
+    prometheus:
+      enabled: true  # Enable Prometheus metrics
+    metrics:
+      enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+  logging:
+    pattern:
+      level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
