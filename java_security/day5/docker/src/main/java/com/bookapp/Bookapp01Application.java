@@ -19,7 +19,7 @@ public class Bookapp01Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        bookRepo.save(new Book("123","book1","category1","author1", BigDecimal.valueOf(1000.00)));
+        //bookRepo.save(new Book("123","book1","category1","author1", BigDecimal.valueOf(1000.00)));
         //bookRepo.save(new Book("456","book2","category2","author2",BigDecimal.valueOf(2000.00)));
         System.out.println("---------------added books----------------");
     }
