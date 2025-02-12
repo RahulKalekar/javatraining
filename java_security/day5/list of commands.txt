@@ -1,0 +1,38 @@
+mvn clean verify sonar:sonar -Dsonar.projectKey=project1 -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_c728475131a378fa2c93963c688a9450b3563b6d
+
+
+zipkin
+
+
+docker commands
+
+docker login -u rahul471
+
+docker images 
+docker rmi <image id>
+
+docker container -ls
+docker rm <container id first few characters>
+
+----Q1----
+docker build -t rahul471/bookapp:1.1 .  
+
+mvn compile jib:dockerBuild  
+docker run -p 8090:8080 rahul471/bookapp01:1.2 
+
+----Q2------
+NETWORKING
+
+docker container run --name exchange -p 8080:8000 -d currency-exchange 
+docker container run --name conversion -p 8081:8100 -d currency-conversion 
+
+docker network create conversion-exchange 
+
+docker build -t currency-exchange . 
+docker build -t currency-conversion .
+
+docker container run --network conversion-exchange --name exchange -p 8080:8000 -d currency-exchange 
+docker container run --network conversion-exchange --name conversion -p 8081:8100 -d currency-conversion
+
+
+docker container logs conversion
