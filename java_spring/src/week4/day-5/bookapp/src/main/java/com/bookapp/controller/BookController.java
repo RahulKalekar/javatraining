@@ -3,6 +3,7 @@ package com.bookapp.controller;
 import com.bookapp.entities.Book;
 import com.bookapp.service.BookService;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,14 +15,12 @@ import java.util.List;
 @RestController
 @RequestMapping(path="api")
 @Validated
+@AllArgsConstructor
 public class BookController {
 
     private BookService bookService;
 
-    @Autowired
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
+
     @GetMapping("books")
     public ResponseEntity<List<Book>> getAll() {
         return ResponseEntity.status(HttpStatus.OK).body(bookService.getAll());
