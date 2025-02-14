@@ -34,5 +34,25 @@ docker build -t currency-conversion .
 docker container run --network conversion-exchange --name exchange -p 8080:8000 -d currency-exchange 
 docker container run --network conversion-exchange --name conversion -p 8081:8100 -d currency-conversion
 
+------Q3----------
+MYSQL
 
+change connection to mysqldb(docker mysql container)
+____________________________________________________
+jdbc:mysql://mysqldb/bookstore
+
+
+
+mvn clean package -DskipTests 
+docker build -t book-mysql . 
+docker container run --name book-mysql -p 8080:8080 -d book-mysql
+docker network create book-mysql-network 
+docker container run --network book-mysql-network  --name book-mysql -p 8080:8080 -d book-mysql
+
+
+docker container run --name mysqldb --network book-mysql-network  -e MYSQL_ROOT_PASSWORD=root -e 
+MYSQL_DATABASE=bookstore -d -p 3308:3306 mysql
+
+docker container exec -it <id> bash
+mysql -u root -p -h 127.0.0.1
 docker container logs conversion
