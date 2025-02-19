@@ -31,6 +31,7 @@ public class Bookapp01Application implements CommandLineRunner {
         bookRepo.save(new Book("123","book1","category1","author1", BigDecimal.valueOf(1000.00)));
         bookRepo.save(new Book("456","book2","category2","author2",BigDecimal.valueOf(2000.00)));
         userService.addUserEntity(new UserEntity("teacher",
+
                 passwordEncoder.encode("teacher"), List.of("ROLE_TEACHER","ROLE_STUDENT")));
 
         userService.addUserEntity(new UserEntity("student",passwordEncoder.encode("student"),

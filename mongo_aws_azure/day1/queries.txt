@@ -1,0 +1,106 @@
+1. create one mongodb database called peaksdb
+
+used mongo compass
+
+2. create collections called peaks insert all documents mention above
+
+db.peaks.insertMany([
+    {
+        "name": "Everest",
+        "height": 8848,
+        "location": ["Nepal", "China"],
+        "ascents": {
+            "first": { "year": 1953 },
+            "first_winter": { "year": 1980 },
+            "total": 5656
+        }
+    },
+    {
+        "name": "K2",
+        "height": 8611,
+        "location": ["Pakistan", "China"],
+        "ascents": {
+            "first": { "year": 1954 },
+            "first_winter": { "year": 1921 },
+            "total": 306
+        }
+    },
+    {
+        "name": "Kangchenjunga",
+        "height": 8586,
+        "location": ["Nepal", "India"],
+        "ascents": {
+            "first": { "year": 1955 },
+            "first_winter": { "year": 1986 },
+            "total": 283
+        }
+    },
+    {
+        "name": "Lhotse",
+        "height": 8516,
+        "location": ["Nepal", "China"],
+        "ascents": {
+            "first": { "year": 1956 },
+            "first_winter": { "year": 1988 },
+            "total": 461
+        }
+    },
+    {
+        "name": "Makalu",
+        "height": 8485,
+        "location": ["China", "Nepal"],
+        "ascents": {
+            "first": { "year": 1955 },
+            "first_winter": { "year": 2009 },
+            "total": 361
+        }
+    }
+])
+
+________________
+
+4. Write Query to returns any documents whose name value is equal to Everest:
+
+db.peaks.find({ "name": "Everest" })
+
+_________________
+
+5. Write Query to searches for any documents whose name value does not equal Everest
+
+db.peaks.find({ "name": { $ne: "Everest" } })
+
+_________________
+
+6. Write Queries query searches for documents whose height value is greater than 8500
+
+db.peaks.find({ "height": { $gt: 8500 } })
+
+_________________
+
+7.Write Queries to selecting a mountain that matches the name Everest and the exact height of 8848 meters:
+
+db.peaks.find({ "name": "Everest", "height": 8848 })
+
+_________________
+
+8.Write Queries to selecting a mountain that matches the name Everest or.  the exact height of 8848 meters:
+
+db.peaks.find({
+    $or: [
+        { "name": "Everest" },
+        { "height": 8848 }
+    ]
+})
+
+_________________
+
+9. Find mountains located in both China and Nepal?
+
+db.peaks.find({ "location": { $all: ["China", "Nepal"] } })
+
+_________________
+
+10. Write query to found peek with more than 1000 ascents
+
+db.peaks.find({ "ascents.total": { $gt: 1000 } })
+
