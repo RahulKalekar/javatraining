@@ -15,7 +15,7 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
       - name: nginx
-        image: rgupta00/nginx-gke
+        image: rahul471/nginx-gke
 ---
 apiVersion: v1
 kind: Service

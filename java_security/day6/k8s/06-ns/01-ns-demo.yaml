@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: empapp-deploy
+  name: bookapp-deploy
   namespace: dev
   annotations:
     kubernetes.io/change-cause: "deploying v1"
@@ -13,16 +13,16 @@ spec:
       maxSurge: "100%"
   selector:
     matchLabels:
-      app:  empapp-service
+      app:  bookapp-service
   replicas: 3
   template:
     metadata:
       labels:
-        app:  empapp-service
+        app:  bookapp-service
     spec:
       containers:
-      - name:  empapp-service
-        image: rgupta00/empapp:1.1
+      - name:  bookapp-service
+        image: rahul471/bookapp:1.1
         ports:
         - name: "app-port"
           containerPort: 8080
@@ -30,11 +30,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: empapp-svc
+  name: bookapp-svc
 spec:
   type: NodePort
   selector:
-    app: empapp-service
+    app: bookapp-service
   ports:
   - port: 8080
     targetPort: 8080

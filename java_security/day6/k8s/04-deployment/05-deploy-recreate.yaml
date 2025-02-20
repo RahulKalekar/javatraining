@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: empapp-deploy
+  name: bookapp-deploy
   annotations:
-    kubernetes.io/change-cause: "deploying v3"
+    kubernetes.io/change-cause: "deploying v1"
 spec:
   minReadySeconds: 10
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app:  empapp-service
+      app:  bookapp-service
   replicas: 2
   template:
     metadata:
       labels:
-        app:  empapp-service
+        app:  bookapp-service
     spec:
       containers:
-      - name:  empapp-service
-        image: rgupta00/empapp:1.3
+      - name:  bookapp-service
+        image: rahul471/bookapp:1.1
         ports:
         - name: "app-port"
           containerPort: 8080

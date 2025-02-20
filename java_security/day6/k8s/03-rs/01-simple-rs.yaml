@@ -5,14 +5,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: my-app
+      app: bookapp
   replicas: 3
   template:
     metadata:
-      name: my-pod
+      name: bookapp
       labels:
-        app: my-app
+        app: bookapp
     spec:
       containers:
-      - name: nginx
-        image: nginx
+      - name: bookapp
+        image: rahul471/bookapp:1.1

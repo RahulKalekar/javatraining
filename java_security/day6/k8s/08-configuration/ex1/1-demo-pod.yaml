@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: demo-pod
+  name: bookapp-pod
 spec:
   containers:
     - name: app
       command: ["/bin/sh", "-c", "printenv"]
-      image: busybox:latest
+      image: bookapp:latest
       envFrom:
         - configMapRef:
-            name: demo-config
+            name: bookapp-config

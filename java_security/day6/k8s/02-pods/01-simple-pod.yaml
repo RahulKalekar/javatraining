@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx
+    image: rahul471/bookapp:1.1
     resources:
       limits:
         memory: "128Mi"

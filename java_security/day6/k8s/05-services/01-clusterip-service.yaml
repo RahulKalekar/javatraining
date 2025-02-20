@@ -6,7 +6,7 @@ spec:
   terminationGracePeriodSeconds: 1
   containers:
   - name: demo
-    image: rgupta00/util
+    image: rahul471/bookapp:1.1
     args:
     - "sleep"
     - "3600"
@@ -14,11 +14,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: empapp-svc
+  name: bookapp-svc
 spec:
   type: ClusterIP
   selector:
-    app: empapp-service
+    app: bookapp-service
   ports:
   - port: 8080
     targetPort: 8080
