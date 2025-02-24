@@ -1,0 +1,45 @@
+package com.bookapp.controller;
+
+import com.bookapp.entities.JournalEntry;
+import com.bookapp.entities.User;
+import com.bookapp.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/users")
+public class UserController {
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/all")
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
+    }
+
+    @GetMapping("/{userId}/journal-entries")
+    public List<JournalEntry> getJournalEntriesByUserId(@PathVariable String userId) {
+        return userService.getJournalEntriesByUserId(userId);
+    }
+
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable String id) {
+        return userService.getUserById(id).orElse(null);
+    }
+
+    @PostMapping("/create")
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
+    }
+
+    @PutMapping("/{id}")
+    public User updateUser(@PathVariable String id, @RequestBody User user) {
+        return userService.updateUser(id, user);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable String id) {
+        userService.deleteUser(id);
+    }
+}
