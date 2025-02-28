@@ -1,0 +1,11 @@
+package org.example;
+
+import javax.naming.Context;
+
+public class MyLambdaHandler implements RequestHandler<String, String> {
+
+    @Override
+    public String handleRequest(String input, Context context) {
+        return "Hello, " + input + " from AWS Lambda!";
+    }
+}
