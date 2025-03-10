@@ -6,6 +6,7 @@ spring:
       database: productapp
       repositories:
         enabled: true
+
   application:
     name: productapp
 server:
